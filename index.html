@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="icon.png">
-	<link rel="icon" type="image/png" href="icon.png">
+	<link rel="shortcut icon" href="assets/imgs/icon.ico" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>NobelGT</title>
+	<title>NobelGT - Optimize Your Schedule</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -18,217 +17,180 @@
 	<!-- CSS Files -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/material-kit.css" rel="stylesheet"/>
-
-	<!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="assets/css/style.css" rel="stylesheet"/>
+	<link href="assets/css/index.css" rel="stylesheet"/>
 </head>
 
-<body>
+<body class="landing-page">
+    <nav class="navbar navbar-transparent navbar-absolute">
+    	<div class="container">
+        	<!-- Brand and toggle get grouped for better mobile display -->
+        	<div class="navbar-header">
+        		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+            		<span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+        		</button>
+        		<a class="navbar-brand" href="http://www.nobelgt.com"><img alt="Logo" src="assets/imgs/icon.png"> NobelGT</a>
+        	</div>
 
-<div class="wrapper">
-    <div class="header-filter"></div>
-	<div class="main main-raised">
-	    <div class="titles">
-	        <div class="col-md-12"><h3><img src="icon.png"></img>NobelGT v2.0 Alpha</h3></div>
-	    </div>
-	    <div class="titles">
-	        <div class="col-md-2"><h3>Options</h3></div>
-	        <div class="col-md-3 middle"><h3>Results</h3></div>
-	        <div class="col-md-7"><h3>Schedule Details</h3></div>
-	    </div>
-	    <div class="data">
-            <div class="col-md-2 formcol">
-                <form class="form" action="/result" method="POST">
-                    <div class="content">
-                    <div class="form-group">
-                        <label class="control-label" for="listCourses">List your courses, separated by commas</label>
-                        <input type="text" class="form-control" id="listCourses" name="listCourses" placeholder="CS 1337, KAFA 1500">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="freeDays">Enter number of desired free days (incl. weekends)</label>
-                        <input type="text" class="form-control" id="freeDays" name="freeDays" placeholder="5">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="startTime">Enter desired start time</label>
-                        <input type="text" class="form-control" id="startTime" name="startTime" placeholder="6:00 AM">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="endTime">Enter desired end time</label>
-                        <input type="text" class="form-control" id="endTime" name="endTime"placeholder="9:00 PM">
-                    </div>
-                        <button type="submit" class="btn btn-primary btn-block">Go!</button>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-3 tablecol">
-                <table class="table table-bordered table-hover">
-                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>		        <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                            <h3>BOOM</h3>
-                            <p>HEADSHOT</p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-md-7 schedulecol">
-                <div class="bottomlayer">
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                    <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
-                </div>
-                <div class="timelayer">
-                    <div>7:00 AM</div>
-                    <div>8:00 AM</div>
-                    <div>9:00 AM</div>
-                    <div>10:00 AM</div>
-                    <div>11:00 AM</div>
-                    <div>12:00 AM</div>
-                    <div>1:00 PM</div>
-                    <div>2:00 PM</div>
-                    <div>3:00 PM</div>
-                    <div>4:00 PM</div>
-                    <div>5:00 PM</div>
-                    <div>6:00 PM</div>
-                    <div>7:00 PM</div>
-                    <div>8:00 PM</div>
-                    <div>9:00 PM</div>
-                </div>
-                <div class="scheduleitem">
-                    MATH 1554
+        	<div class="collapse navbar-collapse" id="navigation-example">
+        		<ul class="nav navbar-nav navbar-right">
+		            <li>
+		                <a href="#" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+							<i class="fa fa-twitter"></i>
+						</a>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+							<i class="fa fa-facebook-square"></i>
+						</a>
+		            </li>
+					<li>
+		                <a href="#" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+							<i class="fa fa-instagram"></i>
+						</a>
+		            </li>
+        		</ul>
+        	</div>
+    	</div>
+    </nav>
+
+    <div class="wrapper">
+        <div class="header header-filter">
+            <div class="container">
+                <div class="row">
+					<div class="col-md-6">
+						<h1 class="title">NobelGT - Optimize Your Schedule</h1>
+	                    <h4>NobelGT is a better alternative for the course search features provided in Oscar (get the pun?). Just input your courses and the desired parameters for your schedules, and we'll get it to you.</h4>
+	                    <br />
+	                    <a href="app.html" class="btn btn-danger btn-raised btn-lg">
+							<i class="fa fa-play"></i> Get Started
+						</a>
+					</div>
                 </div>
             </div>
         </div>
+
+		<div class="main main-raised">
+			<div class="container">
+		        <div class="section text-center section-landing">
+		            <div class="row">
+		                <div class="col-md-8 col-md-offset-2">
+		                    <h2 class="title">Features</h2>
+		                    <h5 class="description">NobelGT is a better alternative for the course search features provided in Oscar (get the pun?). It is also a strong alternative to Courseoff that takes the burden of choosing a good schedule off of your shoulders, and gets you the best possible schedule for your needs. </h5>
+		                </div>
+		            </div>
+
+		            <div class="features">
+		                <div class="row">
+		                    <div class="col-md-4">
+		                        <div class="info">
+		                            <div class="icon icon-primary">
+		                                <i class="material-icons">grade</i>
+		                            </div>
+		                            <h4 class="info-title">Easy To Use</h4>
+		                            <p>You type in your classes and pick your criteria, and NobelGT does the rest for you. You can navigate possible schedules based on similarity to each other and the score they have received according to your criteria.</p>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-4">
+		                        <div class="info">
+		                            <div class="icon icon-success">
+		                                <i class="material-icons">schedule</i>
+		                            </div>
+		                            <h4 class="info-title">Fast</h4>
+		                            <p>You receive results as they are calculated by our engine. You get a list of CRN codes for all schedules so that you can easily register for classes once you found your perfect fit.</p>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-4">
+		                        <div class="info">
+		                            <div class="icon icon-danger">
+		                                <i class="material-icons">lightbulb_outline</i>
+		                            </div>
+		                            <h4 class="info-title">Smart</h4>
+		                            <p>NobelGT uses deep learning techniques and human-rated schedules for most criteria, so that the results you receive are as good as can be - removing errors that can stem from arbitrary weighing of your criteria.</p>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+
+		        <div class="section text-center">
+		            <h2 class="title">Here is our team</h2>
+
+		            <div class="team">
+		                <div class="row">
+		                    <div class="col-md-3">
+		                        <div class="team-player">
+		                            <img src="assets/imgs/cem.jpg" alt="Thumbnail Image" class="img-raised">
+		                            <h4 class="title">Cem Gokmen<br />
+		                                <small class="text-muted">Lead Developer</small>
+		                            </h4>
+		                            <p></p>
+		                            <a href="http://twitter.com/sultanskyman" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter"></i></a>
+									<a href="https://www.linkedin.com/in/cgokmen" class="btn btn-simple btn-just-icon"><i class="fa fa-linkedin"></i></a>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-3">
+		                        <div class="team-player">
+		                            <img src="assets/imgs/mert.jpg" alt="Thumbnail Image" class="img-raised">
+		                            <h4 class="title">Mert Dumenci<br />
+		                                <small class="text-muted">Developer</small>
+		                            </h4>
+		                            <p></p>
+		                            <a href="http://twitter.com/mertdumenci" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter"></i></a>
+		                            <a href="https://www.linkedin.com/in/mertd1" class="btn btn-simple btn-just-icon"><i class="fa fa-linkedin"></i></a>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-3">
+		                        <div class="team-player">
+		                            <img src="assets/imgs/ankit.jpg" alt="Thumbnail Image" class="img-raised">
+		                            <h4 class="title">Ankit Siva<br />
+		                                <small class="text-muted">Developer</small>
+		                            </h4>
+		                            <p></p>
+									<a href="http://twitter.com/ankitsiva" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter"></i></a>
+		                            <a href="https://www.linkedin.com/in/ankitsiva" class="btn btn-simple btn-just-icon"><i class="fa fa-linkedin"></i></a>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-3">
+		                        <div class="team-player">
+		                            <img src="assets/imgs/austin.jpg" alt="Thumbnail Image" class="img-raised">
+		                            <h4 class="title">Austin Jang<br />
+		                                <small class="text-muted">Math Wiz</small>
+		                            </h4>
+		                            <p></p>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
+	    <footer class="footer">
+	        <div class="container">
+	            <div class="copyright pull-right">
+	                &copy; 2016, made with <i class="fa fa-heart heart"></i> by NobelGT
+	            </div>
+	        </div>
+	    </footer>
+
 	</div>
-</div>
 </body>
+
 	<!--   Core JS Files   -->
 	<script src="assets/js/jquery.min.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="assets/js/material.min.js"></script>
 
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="assets/js/nouislider.min.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
+	<script src="assets/js/bootstrap-datepicker.js" type="text/javascript"></script>
+
 	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 	<script src="assets/js/material-kit.js" type="text/javascript"></script>
-	<script src="assets/js/moment.js"></script>
-	<script src="assets/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
 
-	<script type="text/javascript">
-            $(function () {
-                $('#startTime, #endTime').datetimepicker({
-                    format: 'LT'
-                });
-            });
-    </script>
-    
-    <script src="assets/js/app.js" type="text/javascript"></script>
 </html>

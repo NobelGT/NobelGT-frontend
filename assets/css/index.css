@@ -1,0 +1,12 @@
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+.navbar-brand>img {
+  height: 3em;
+  margin-right: 5px;
+}
+
+.header {
+    background-image: url('../imgs/tower.jpg');
+}
