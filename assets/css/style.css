@@ -1,5 +1,26 @@
+::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: white;
+    border-right: 1px solid #ddd;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: lightgray;
+}
+
+.header-filter {
+    min-height: 0;
+    height: 25vh;
+    background-color: #eeb211;
+}
+
 .main {
-    margin-top: 5vh;
+    margin-top: -20vh;
     margin-bottom: 5vh;
     margin-left: 5vw;
     margin-right: 5vw;
@@ -10,15 +31,158 @@
     width; 90vw;
 }
 
-.main > div {
+.titles {
+    height: 10%;
+    padding: 0;
+    margin: 0%;
+    
+    background-color: #00254c;
+    color: #fff !important;
+    
+    overflow: hidden;
+}
+
+.titles > div {
+    margin: 0px;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    border-bottom: 1px solid #ccc;
+}
+
+.titles img {
+    height: 3em;
+    margin-right: 5px;
+}
+
+.titles h3 {
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.titles > .middle {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.data {
+    padding: 0;
+    margin: 0%;
+    height: 80%;
+}
+
+.data > div {
     height: 100%
+}
+
+.formcol {
+    padding: 10px;
+    overflow: auto;
+}
+
+.form-group {
+    margin-top: 7px;
 }
 
 .tablecol > table {
     height: 100%;
+    
+    margin-bottom: 0;
+}
+
+h3 {
+    margin-top: 10px;
 }
 
 .tablecol {
-    overflow: scroll;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: auto;
 }
+
+.schedulecol {
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+.schedulecol > div {
+    padding: 0%;
+    margin: 0%;
+    position: absolute;
+}
+
+.bottomlayer {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #eee;
+}
+
+.bottomlayer .srow {
+    height: 3.225%;
     
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.bottomlayer .scol {
+    float: left;
+    height: 100%;
+    width: 14.285%;
+    
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    
+    border-right: 1px solid #eee;
+}
+
+.bottomlayer .srow:nth-child(odd) {
+    border-bottom: 1px solid #eee;
+}
+
+.timelayer {
+    width: 14.285%;
+    height: 100%;
+}
+
+.timelayer div {
+    top: 6.45%;
+    left: 0;
+    width: 100%;
+    height: 6.45%;
+    
+    padding-left: 10%;
+    
+    color: grey;
+    font-size: 0.75em;
+    overflow: hidden;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.scheduleitem {
+    top: 6.45%;
+    left: 14.285%;
+    width: 14.285%;
+    height: 6.45%;
+    
+    color: white;
+    overflow: hidden;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    border-radius: 0.5vw;
+    
+    background-color: darkblue;
+}
