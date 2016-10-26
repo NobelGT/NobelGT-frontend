@@ -3,13 +3,13 @@
 }
  
 ::-webkit-scrollbar-track {
-    border-radius: 0px;
+    border-radius: 0;
     background-color: white;
     border-right: 1px solid #ddd;
 }
  
 ::-webkit-scrollbar-thumb {
-    border-radius: 0px;
+    border-radius: 0;
     background-color: lightgray;
 }
 
@@ -19,22 +19,34 @@
     background-color: #eeb211;
 }
 
+#cover{
+    position:fixed;
+    top:0;
+    left:0;
+    background:rgba(255,255,255,0.6);
+    z-index:5;
+    width:100%;
+    height:100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .main {
-    margin-top: -20vh;
-    margin-bottom: 5vh;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    
+    margin: -20vh 5vw 5vh;
+
     padding: 0;
     
     height: 90vh;
-    width; 90vw;
+    width: 90vw;
 }
 
 .titles {
     height: 10%;
     padding: 0;
-    margin: 0%;
+    margin: 0;
     
     background-color: #00254c;
     color: #fff !important;
@@ -43,7 +55,7 @@
 }
 
 .titles > div {
-    margin: 0px;
+    margin: 0;
     height: 100%;
     
     display: flex;
@@ -71,7 +83,7 @@
 
 .data {
     padding: 0;
-    margin: 0%;
+    margin: 0;
     height: 80%;
 }
 
@@ -105,14 +117,14 @@ h3 {
 }
 
 .schedulecol {
-    padding: 0px;
+    padding: 0;
     position: relative;
     overflow: hidden;
 }
 
 .schedulecol > div {
-    padding: 0%;
-    margin: 0%;
+    padding: 0;
+    margin: 0;
     position: absolute;
 }
 
@@ -169,11 +181,8 @@ h3 {
 }
 
 .scheduleitem {
-    top: 6.45%;
-    left: 14.285%;
     width: 14.285%;
-    height: 6.45%;
-    
+
     color: white;
     overflow: hidden;
     
@@ -182,7 +191,7 @@ h3 {
     align-items: center;
     flex-direction: column;
     
-    border-radius: 0.5vw;
+    /*border-radius: 0.5vw;*/
     
-    background-color: darkblue;
+    background-color: black;
 }
