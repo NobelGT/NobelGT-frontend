@@ -24,16 +24,28 @@
 <body>
 
 <div class="wrapper">
-    <div id="cover" style="display: none;"></div>
+    <div id="cover" style="display: none;">
+        <div class="alert" id="alertBox">
+             <div class="container text-center">
+                <div class="alert-icon">
+                    <i class="material-icons" id="alertIcon">error_outline</i>
+                </div><span id="alerttext"></span>
+            </div>
+        </div>
+        <div class="container text-center" id="cancelButton" style="display: none;">
+            <a href="#" class="btn btn-lg btn-info">Understood.</a>
+        </div>
+    </div>
     <div class="header-filter"></div>
 	<div class="main main-raised">
 	    <div class="titles">
 	        <div class="col-md-12"><h3><img src="assets/imgs/icon.png"/>NobelGT v2.0 Alpha</h3></div>
 	    </div>
 	    <div class="titles">
-	        <div class="col-md-2"><h3>Options</h3></div>
-	        <div class="col-md-3 middle"><h3>Results</h3></div>
-	        <div class="col-md-7"><h3>Schedule Details</h3></div>
+	        <div class="col-md-2 rightborder"><h3>Options</h3></div>
+	        <div class="col-md-2 rightborder"><h3>Results</h3></div>
+            <div class="col-md-6 rightborder"><h3>Weekly Schedule</h3></div>
+            <div class="col-md-2"><h3>Course Details</h3></div>
 	    </div>
 	    <div class="data">
             <div class="col-md-2 formcol">
@@ -55,15 +67,15 @@
                         <label class="control-label" for="endTime">Enter desired end time</label>
                         <input type="text" class="form-control" id="endTime" name="endTime" placeholder="9:00 PM" value="4:00 PM">
                     </div>
-                        <button type="submit" class="btn btn-primary btn-block">Go!</button>
+                        <button type="submit" class="btn btn-success btn-block">Go!</button>
                     </div>
                 </form>
             </div>
-            <div class="col-md-3 tablecol">
+            <div class="col-md-2 tablecol">
                 <table class="table table-bordered table-hover">
                 </table>
             </div>
-            <div class="col-md-7 schedulecol">
+            <div class="col-md-6 schedulecol">
                 <div class="bottomlayer">
                     <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
                     <div class="srow"><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div><div class="scol"></div></div>
@@ -114,6 +126,9 @@
                     <div>8:00 PM</div>
                     <div>9:00 PM</div>
                 </div>
+            </div>
+            <div class="detailcol">
+
             </div>
         </div>
 	</div>

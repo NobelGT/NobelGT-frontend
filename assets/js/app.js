@@ -7,8 +7,7 @@ $( "form" ).submit(function(event) {
     event.preventDefault();
 
     if (ws == null) {
-        $("#cover").text("Connecting...");
-        $("#cover").show();
+        updateAlert(false, "Connecting...");
 
         $(".tablecol table").empty();
         schedules = [];
@@ -23,16 +22,17 @@ $( "form" ).submit(function(event) {
 });
 
 function handleScheduleClick(event) {
-    /*var id = parseInt($target.attr('data-id'));
-    $(".tablecol tr.selected").attr('data-id')*/
-    $(".tablecol tr.selected").removeClass("selected");
     var $target = $(this);
 
-    $target.addClass("selected");
+    var thisId = parseInt($target.attr('data-id'));
+    var selectedId = $(".tablecol tr.selected").attr('data-id');
+    if (thisId != selectedId) {
+        $(".tablecol tr.selected").removeClass("selected");
 
-    console.log($target.prop("tagName"));
-    var id = parseInt($target.attr('data-id'));
-    displaySelection(id);
+        $target.addClass("selected");
+
+        displaySelection(thisId);
+    }
 }
 
 function receiveConnection() {
@@ -51,7 +51,7 @@ function sendData(data) {
     };
 
     ws.send(JSON.stringify(msg));
-    $("#cover").text("Sending...");
+    updateAlert(false, "Sending...");
 }
 
 function receiveMessage(event) {
@@ -85,17 +85,17 @@ function receiveData(data) {
     var $addedRow = $(sprintf("<tr data-id=\"%d\"><td><h3>Schedule</h3><p>%.2f</p></td></tr>", key, score));
     $addedRow.appendTo($table);
     $addedRow.click(handleScheduleClick);
-    var $tableRows = $table.children("tr");
+    var $tableRows = $table.find("tr");
     [].sort.call($tableRows, sortEntries);
     $tableRows.each(function(){
         $table.append(this);
     });
 
-    $("#cover").text(sprintf("Loading: %d%%", progress));
+    updateAlert(false, sprintf("Loading: %d%%", progress));
 }
 
 function receiveError(error) {
-    console.log(error.MESSAGE);
+    updateAlert(true, error.MESSAGE);
 }
 
 function receiveCompletion() {
@@ -103,7 +103,6 @@ function receiveCompletion() {
 }
 
 function receiveClosure() {
-    $("#cover").hide();
     ws = null;
 }
 
@@ -119,6 +118,7 @@ function displaySelection(selection) {
     for (var i = 0; i < courses.length; i++) {
         course = courses[i];
         code = course.code;
+        name = course.name;
         color = plt[i];
 
         sessions = course.sessions;
@@ -132,12 +132,15 @@ function displaySelection(selection) {
             // Server days start with Monday. We want ours to start Sunday.
             day = (day + 1) % 7;
 
-            addScheduleItem(day, start, end, code, color);
+            $popover = $(sprintf("<div><p><strong>Location:</strong> %s</p><p><strong>Instructors:</strong>" +
+                " %s</p><p><strong>Type:</strong> %s</p></div>", session.location, session.instructors, session.type));
+
+            addScheduleItem(day, start, end, code, name, color, $popover.html());
         }
     }
 }
 
-function addScheduleItem(day, start, end, text, color) {
+function addScheduleItem(day, start, end, title, name, color, popoverContents) {
     var startTime = moment(start, "hh:mm A").year(1970).month(1).day(1);
     var endTime = moment(end, "hh:mm A").year(1970).month(1).day(1);
 
@@ -148,17 +151,46 @@ function addScheduleItem(day, start, end, text, color) {
     var height = sprintf("%.3f%%", slotHeight * 3.225);
     var left = sprintf("%.3f%%", day * 14.285);
 
-    $(".schedulecol").append(sprintf('<div class="scheduleitem" style="top: %s; left:%s; height: %s; background-color:#%s;">%s</div>', top, left, height, color, text));
+    var $item = $(sprintf('<div class="scheduleitem" style="top: %s; left:%s; height: %s;' +
+        ' background-color:#%s;" data-placement="auto" data-toggle="popover" data-viewport=".schedulecol"' +
+        ' data-trigger="hover" data-html="true" title="%s" data-content="%s">%s</div>', top,
+        left, height, color, title + ": " + name, popoverContents, title));
+    $item.appendTo($(".schedulecol"));
+    $item.popover();
 }
+
+function updateAlert(isError, text) {
+    $("#alerttext").text(text);
+
+    if (isError) {
+        $("#alertIcon").text("error_outline");
+        $("#alertBox").removeClass("alert-info");
+        $("#alertBox").addClass("alert-danger");
+
+        $("#cancelButton").show();
+    } else {
+        $("#alertIcon").text("info_outline");
+        $("#alertBox").removeClass("alert-danger");
+        $("#alertBox").addClass("alert-info");
+
+        $("#cancelButton").hide();
+    }
+
+    $("#cover").show();
+}
+
+$("#cancelButton").click(function() {
+    $("#cover").hide();
+});
 
 function sortEntries(a, b) {
     var an = schedules[parseInt($(a).attr('data-id'))].score,
         bn = schedules[parseInt($(b).attr('data-id'))].score;
 
-    if(an > bn) {
+    if(an < bn) {
         return 1;
     }
-    if(an < bn) {
+    if(an > bn) {
         return -1;
     }
     return 0;

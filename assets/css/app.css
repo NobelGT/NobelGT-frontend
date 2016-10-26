@@ -76,8 +76,7 @@
     font-style: normal;
 }
 
-.titles > .middle {
-    border-left: 1px solid #ccc;
+.rightborder {
     border-right: 1px solid #ccc;
 }
 
@@ -114,6 +113,21 @@ h3 {
     padding-left: 0;
     padding-right: 0;
     overflow: auto;
+
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.tablecol tr {
+    background-image: url('../imgs/arrow.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+
+.tablecol tr.selected {
+    background-color: #399afa !important;
+    color: white !important;
 }
 
 .schedulecol {
