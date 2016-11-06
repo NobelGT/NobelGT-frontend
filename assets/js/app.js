@@ -17,7 +17,11 @@ $( "form" ).submit(function(event) {
         ws.onopen = receiveConnection;
         ws.onclose = receiveClosure;
         ws.onmessage = receiveMessage;
-
+        ws.onerror = function() {
+            if (ws.readyState != 1) {
+                receiveError("Could not connect to server.");
+            }
+        };
     }
 });
 
@@ -64,7 +68,7 @@ function receiveMessage(event) {
                 receiveData(msg.PARAMETERS);
                 break;
             case "ERROR":
-                receiveError(msg.PARAMETERS);
+                receiveError(msg.PARAMETERS.MESSAGE);
                 break;
             case "COMPLETION":
                 receiveCompletion();
@@ -77,25 +81,28 @@ function receiveMessage(event) {
 
 function receiveData(data) {
     var progress = data.progress;
-    var score = data.score;
-
-    var key = schedules.push(data) - 1;
-
-    var $table = $(".tablecol > table");
-    var $addedRow = $(sprintf("<tr data-id=\"%d\"><td><h3>Schedule</h3><p>%.2f</p></td></tr>", key, score));
-    $addedRow.appendTo($table);
-    $addedRow.click(handleScheduleClick);
-    var $tableRows = $table.find("tr");
-    [].sort.call($tableRows, sortEntries);
-    $tableRows.each(function(){
-        $table.append(this);
-    });
-
     updateAlert(false, sprintf("Loading: %d%%", progress));
+
+    if (data.score != null && data.courses != null) {
+        var score = data.score;
+
+        var key = schedules.push(data) - 1;
+
+        var $table = $(".tablecol > table");
+        var $addedRow = $(sprintf("<tr data-id=\"%d\"><td><h3>Schedule #%d</h3><p><strong>Score:" +
+            " </strong>%.2f / 3.00</p></td></tr>", key, schedules.length, score));
+        $addedRow.appendTo($table);
+        $addedRow.click(handleScheduleClick);
+        var $tableRows = $table.find("tr");
+        [].sort.call($tableRows, sortEntries);
+        $tableRows.each(function () {
+            $table.append(this);
+        });
+    }
 }
 
 function receiveError(error) {
-    updateAlert(true, error.MESSAGE);
+    updateAlert(true, error);
 }
 
 function receiveCompletion() {
@@ -108,35 +115,59 @@ function receiveClosure() {
 
 function displaySelection(selection) {
     $('.scheduleitem').remove();
+    $('.detailcol .panel').remove();
 
-    schedule = schedules[selection];
-    courses = schedule.courses;
+    var schedule = schedules[selection];
+    var courses = schedule.courses;
 
     var plt = palette('tol-rainbow', courses.length);
     shuffle(plt);
 
     for (var i = 0; i < courses.length; i++) {
-        course = courses[i];
-        code = course.code;
-        name = course.name;
-        color = plt[i];
+        var course = courses[i];
+        var code = course.code;
+        var name = course.name;
+        var color = plt[i];
 
-        sessions = course.sessions;
+        var sessions = course.sessions;
         for (var j = 0; j < sessions.length; j++) {
-            session = sessions[j];
-            start = session.startTime;
-            end = session.endTime;
+            var session = sessions[j];
+            var start = session.startTime;
+            var end = session.endTime;
 
-            day = session.day;
+            var day = session.day;
 
             // Server days start with Monday. We want ours to start Sunday.
             day = (day + 1) % 7;
 
-            $popover = $(sprintf("<div><p><strong>Location:</strong> %s</p><p><strong>Instructors:</strong>" +
+            var $popover = $(sprintf("<div><p><strong>Location:</strong> %s</p><p><strong>Instructors:</strong>" +
                 " %s</p><p><strong>Type:</strong> %s</p></div>", session.location, session.instructors, session.type));
 
             addScheduleItem(day, start, end, code, name, color, $popover.html());
         }
+
+        var sections = course.sections;
+
+        var $panel = $(sprintf('<div class="panel panel-default" style="border-color: #%1$s;">' +
+            '<div class="panel-heading" style="border-color: #%1$s; background-color:#%1$s;">%2$s: %3$s</div>' +
+            '<div class="panel-body"><p>%4$d time-equivalent sections are available.</p></div>' +
+        '</div>', color, code, name, sections.length));
+
+        var $table = $(sprintf('<table class="table table-condensed">' +
+        '<thead><tr><td>Code</td><td>CRN</td></tr></thead>' +
+        '</table>'));
+
+        for (var k = 0; k < sections.length; k++) {
+            var section = sections[k];
+            var crn = section.crn;
+            var sCode = section.code;
+
+            var $row = $(sprintf('<tr><td>%s</td><td>%s</td></tr>', sCode, crn));
+            $row.appendTo($table);
+        }
+
+        $table.appendTo($panel);
+        $panel.appendTo($(".detailcol"))
     }
 }
 
